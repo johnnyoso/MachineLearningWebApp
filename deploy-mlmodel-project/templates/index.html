@@ -50,26 +50,67 @@
 <body>
     <div class="login">
 
-      <h2>Price Prediction</h2>
+      <h2>Match Prediction</h2>
 
-      <p>Introduce the number of rooms and distance</p>
+      <p>Select the Teams to Predict</p>
+      
+    <form action="{{ url_for('predict')}}" method="post"> 
 
-      <!-- Inputs for our ML model-->
+      <label for="team-names">Choose Predicting Team:</label>
 
-      <form action="{{ url_for('predict')}}" method="post">
-        <input type="number" step="0.01" name="predict_team_total_matches" placeholder="Predict Team Total Matches" required="required" />
-        <input type="number" step="0.01" name="predict_team_win_pct" placeholder="Predict Team Win Percentage" required="required" />
-        <input type="number" step="0.01" name="predict_team_rating" placeholder="Predict Team Rating" required="required" />
-        <input type="number" step="0.01" name="predict_players_mmr_average" placeholder="Predict Players MMR Average" required="required" />
-        <input type="number" step="0.01" name="opposing_team_total_matches" placeholder="Opposing Team Total Matches" required="required" />
-        <input type="number" step="0.01" name="opposing_team_win_pct" placeholder="Opposing Team Win Percentage" required="required" />
-        <input type="number" step="0.01" name="opposing_team_rating" placeholder="Opposing Team Rating" required="required" />
-        <input type="number" step="0.01" name="opposing_players_mmr_average" placeholder="Opposing Players MMR Average" required="required" />
-        <input type="number" step="0.01" name="duration" placeholder="Duration" required="required" />
+      <select name="predict-team-names" id="predict-team-names">
+        <option value="1838315">Team Secret</option>
+        <option value="2586976">OG</option>
+        <option value="2163">Team Liquid</option>
+        <option value="7732977">Boom Esports</option>
+        <option value="15">PSG.LGD</option>
+        <option value="7119388">Team Spirit</option>
+        <option value="8254400">Beastcoast</option>
+        <option value="6209166">Team Aster</option>
+        <option value="7391077">Thunder Awaken</option>
+        <option value="8260983">TSM</option>
+        <option value="8291895">Tundra Esports</option>
+        <option value="7390454">Soniqs</option>
+        <option value="8599101">Gaimin Gladiators</option>
+        <option value="39">Evil Geniuses</option>
+        <option value="350190">Fnatic</option>
+        <option value="team_id">Hokori</option>
+        <option value="8605863">Entity</option>
+        <option value="8721219">BetBoom Team</option>
+        <option value="6209804">Royal Never Give Up</option>
+        <option value="8597976">Talon Esports</option>
+      </select>
 
-        <button type="submit" class="btn btn-primary btn-block btn-large">Predict Value!</button>
+      <h2>VS</h2>
 
-      </form>
+      <label for="team-names">Choose Opposing Team:</label>
+
+      <select name="opposing-team-names" id="opposing-team-names">
+        <option value="1838315">Team Secret</option>
+        <option value="2586976">OG</option>
+        <option value="2163">Team Liquid</option>
+        <option value="7732977">Boom Esports</option>
+        <option value="15">PSG.LGD</option>
+        <option value="7119388">Team Spirit</option>
+        <option value="8254400">Beastcoast</option>
+        <option value="6209166">Team Aster</option>
+        <option value="7391077">Thunder Awaken</option>
+        <option value="8260983">TSM</option>
+        <option value="8291895">Tundra Esports</option>
+        <option value="7390454">Soniqs</option>
+        <option value="8599101">Gaimin Gladiators</option>
+        <option value="39">Evil Geniuses</option>
+        <option value="350190">Fnatic</option>
+        <option value="team_id">Hokori</option>
+        <option value="8605863">Entity</option>
+        <option value="8721219">BetBoom Team</option>
+        <option value="6209804">Royal Never Give Up</option>
+        <option value="8597976">Talon Esports</option>
+      </select>
+
+      <button type="submit" class="btn btn-primary btn-block btn-large">Predict!</button>
+    </form>
+
       <br>
       <br>
       <b> {{ prediction_text }} </b>

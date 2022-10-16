@@ -8,31 +8,17 @@ model = pickle.load(open(r'C:\Users\johnp\deploy-mlmodel\MachineLearningWebApp\d
 def home():
     return render_template('index.html')
 
-@app.route('/predict', methods = ['POST'])
+@app.route('/predict', methods = ['GET', 'POST'])
 def predict():
 
-    # Grabs the inputs values and uses them to make prediction
-    predict_team_total_matches = float(request.form['predict_team_total_matches']) 
-    predict_team_win_pct = float(request.form['predict_team_win_pct'])
-    predict_team_rating = float(request.form['predict_team_rating'])
-    predict_players_mmr_average = float(request.form['predict_players_mmr_average'])
-    opposing_team_total_matches = float(request.form['opposing_team_total_matches'])
-    opposing_team_win_pct = float(request.form['opposing_team_win_pct'])
-    opposing_team_rating = float(request.form['opposing_team_rating'])
-    opposing_players_mmr_average = float(request.form['opposing_players_mmr_average'])
-    duration = float(request.form['duration'])
+    predict_team = request.form.get('predict-team-names')
+    opposing_team = request.form.get('opposing-team-names')
 
-    prediction = model.predict([[predict_team_total_matches, 
-       predict_team_win_pct,
-       predict_team_rating, 
-       predict_players_mmr_average,
-       opposing_team_total_matches, 
-       opposing_team_win_pct,
-       opposing_team_rating, 
-       opposing_players_mmr_average, 
-       duration]])
+    print(predict_team)
+    print(opposing_team)
 
-    return render_template('index.html', prediction_text = f'Match Outcome is: {prediction}')
+    return render_template('index.html')
+
 
 if __name__ == "__main__":
     app.run()
