@@ -48,64 +48,36 @@
 
 </head>
 <body>
-    <div class="login">
+  <div class="login">
 
-      <h2>Match Prediction</h2>
+    <h2>Match Prediction</h2>
 
-      <p>Select the Teams to Predict</p>
+    <p>Select the Teams to Predict</p>
       
-    <form action="{{ url_for('predict')}}" method="post"> 
+    <form method="POST"> 
 
-      <label for="team-names">Choose Predicting Team:</label>
+      <label for="predict-team-names">Choose Predicting Team:</label>
 
-      <select name="predict-team-names" id="predict-team-names">
-        <option value="1838315">Team Secret</option>
-        <option value="2586976">OG</option>
-        <option value="2163">Team Liquid</option>
-        <option value="7732977">Boom Esports</option>
-        <option value="15">PSG.LGD</option>
-        <option value="7119388">Team Spirit</option>
-        <option value="8254400">Beastcoast</option>
-        <option value="6209166">Team Aster</option>
-        <option value="7391077">Thunder Awaken</option>
-        <option value="8260983">TSM</option>
-        <option value="8291895">Tundra Esports</option>
-        <option value="7390454">Soniqs</option>
-        <option value="8599101">Gaimin Gladiators</option>
-        <option value="39">Evil Geniuses</option>
-        <option value="350190">Fnatic</option>
-        <option value="team_id">Hokori</option>
-        <option value="8605863">Entity</option>
-        <option value="8721219">BetBoom Team</option>
-        <option value="6209804">Royal Never Give Up</option>
-        <option value="8597976">Talon Esports</option>
+      <select name="predict_team_names">
+
+        {% for key, value in teams.items() %}
+        <option value="{{ key }}">{{ value }}</option>
+        {% endfor %}
+      
       </select>
 
-      <h2>VS</h2>
+      <br>
+      <b> VS </b>
+      <br>
 
-      <label for="team-names">Choose Opposing Team:</label>
+      <label for="opposing-team-names">Choose Opposing Team:</label>
 
-      <select name="opposing-team-names" id="opposing-team-names">
-        <option value="1838315">Team Secret</option>
-        <option value="2586976">OG</option>
-        <option value="2163">Team Liquid</option>
-        <option value="7732977">Boom Esports</option>
-        <option value="15">PSG.LGD</option>
-        <option value="7119388">Team Spirit</option>
-        <option value="8254400">Beastcoast</option>
-        <option value="6209166">Team Aster</option>
-        <option value="7391077">Thunder Awaken</option>
-        <option value="8260983">TSM</option>
-        <option value="8291895">Tundra Esports</option>
-        <option value="7390454">Soniqs</option>
-        <option value="8599101">Gaimin Gladiators</option>
-        <option value="39">Evil Geniuses</option>
-        <option value="350190">Fnatic</option>
-        <option value="team_id">Hokori</option>
-        <option value="8605863">Entity</option>
-        <option value="8721219">BetBoom Team</option>
-        <option value="6209804">Royal Never Give Up</option>
-        <option value="8597976">Talon Esports</option>
+      <select name="opposing_team_names">
+
+        {% for key, value in teams.items() %}
+        <option value="{{ key }}">{{ value }}</option>
+        {% endfor %}
+      
       </select>
 
       <button type="submit" class="btn btn-primary btn-block btn-large">Predict!</button>
