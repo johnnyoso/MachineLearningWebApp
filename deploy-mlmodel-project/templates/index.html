@@ -54,7 +54,7 @@
 
     <p>Select the Teams to Predict</p>
       
-    <form method="POST"> 
+    <form action="{{ url_for('predict') }}" method="POST"> 
 
       <label for="predict-team-names">Choose Predicting Team:</label>
 
@@ -83,7 +83,6 @@
       <button type="submit" class="btn btn-primary btn-block btn-large">Predict!</button>
     </form>
 
-      <br>
       <br>
       <b> {{ prediction_text }} </b>
 
