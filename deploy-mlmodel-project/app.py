@@ -49,7 +49,20 @@ log_reg_precision_recall = {'350190'  : (0.6310679611650486, 0.8057851239669421)
                             '6209804' : (0.5897435897435898, 0.7419354838709677)}
 
 pickle_team = {'2586976' : ('og_log_reg.pkl', 'og_data.json'),
-                '1838315' : ('team_secret_log_reg.pkl', 'team_secret_data.json')}
+               '1838315' : ('team_secret_log_reg.pkl', 'team_secret_data.json'), 
+               '2163' : ('team_liquid_log_reg.pkl', 'team_liquid_data.json'), 
+               '7732977' : ('boom_esports_log_reg.pkl', 'boom_esports_data.json'), 
+               '8254400' : ('beastcoast_log_reg.pkl', 'beastcoast_data.json'), 
+               '15' : ('PSGLGD_log_reg.pkl', 'PSGLGD_data.json'), 
+               '7119388' : ('team_spirit_log_reg.pkl', 'team_spirit_data_json'), 
+               '6209166' : ('team_aster_log_reg.pkl', 'team_aster_data.json'), 
+               '7391077' : ('thunder_awaken_log_reg.pkl', 'thunder_awaken_data.json'), 
+               '8260983' : ('tsm_log_reg.pkl', 'tsm_data.json'), 
+               '8291895' : ('tundra_esports_log_reg.pkl', 'tundra_esports_data.json'), 
+               '7390454' : ('soniqs_log_reg.pkl', 'soniqs_data.json'), 
+               '8599101' : ('gaimin_gladiators_log_reg.pkl', 'gaimin_gladiators_data.json'), 
+               '39' : ('evil_geniuses_log_reg.pkl', 'evil_geniuses_data.json'), 
+               '350190' : ('fnatic_log_reg.pkl', 'fnatic_data.json')}
 
 @app.route("/", methods = ['GET', 'POST'])
 def home():
